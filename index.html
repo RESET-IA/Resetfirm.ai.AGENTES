@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst by Reset®| Tu Agencia Inteligente</title>
+    <link rel="icon" href="Imagenes/FaviReset.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .franja-negra {
+            background: black;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+        .franja-negra img {
+            height: 80px;
+        }
+        .seccion {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .video-fondo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .contenido {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* SECCIÓN 2 */
+        .seccion2 {
+            background: url('Imagenes/FONDO.png') no-repeat center center/cover;
+            position: relative;
+            color: white;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: auto;
+        }
+        .seccion2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .seccion2 .texto {
+            position: relative;
+            z-index: 2;
+            width: 80%;
+        }
+        .seccion2 video {
+            width: 80%;
+            max-width: 700px;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+
+        /* SECCIÓN 3: Video a la izquierda y chatbot a la derecha */
+    .seccion3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+    }
+
+    /* Video en la izquierda */
+    .seccion3 video {
+        width: 60%;
+        border-radius: 15px;
+    }
+
+    /* Contenedor del chatbot */
+    .chatbot-container {
+        width: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+    }
+
+    /* Imagen y texto arriba del chatbot */
+    .chatbot-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .chatbot-header img {
+        max-width: 400px;
+        border-radius: 10%;
+    }
+
+    .chatbot-header p {
+        font-size: 14px;
+        color: white;
+        margin-top: 8px;
+    }
+
+         /* Botón redondo centrado en la primera sección */
+         .chat-button {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        /* Imagen dentro del botón */
+        .chat-button img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Contenedor del chatbot (centrado debajo del botón) */
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+            margin-top: 20px; /* Espacio entre el botón y el chatbot */
+        }
+
+        .chat-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: none;
+        }
+
+        /* Contenedor de los botones */
+    .redes-sociales {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    /* Estilos de los botones */
+    .social-button {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Íconos dentro de los botones */
+    .social-button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Efecto al pasar el mouse */
+    .social-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
+    }
+
+     /* Sección 3 con video a la izquierda y chatbot a la derecha */
+     .seccion3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px;
+            background: url('Imagenes/FONDO_LogIn.png') no-repeat center center/cover;
+            position: relative;
+        }
+    
+        /* Video en la izquierda */
+        .seccion3 video {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        /* Contenedor para centrar botón y texto */
+    .chatbot-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Botón de chatbot */
+    .chat-button {
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        border: 4px solid rgba(255, 60, 0, 0.651); /* Borde naranja */
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 1.5s infinite; /* Animación de latido */
+    }
+
+    /* Efecto de latido (pulsación) */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(255, 60, 0, 0.712);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 60, 0, 0.712);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(255, 60, 0, 0.712);
+        }
+    }
+
+    /* Imagen dentro del botón */
+    .chat-button img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+ /* Texto debajo del botón */
+    .chat-text {
+        font-size: 14px;
+        color: rgb(2, 1, 10);
+        margin-top: 8px; /* Espacio entre el botón y el texto */
+        text-align: center;
+        font-family: "Blackadder ITC", sans-serif; /* Cambia el tipo de letra aquí */
+    }
+
+    /* Estilos del texto "Contáctanos" */
+    .contactanos-text {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="franja-negra">
+        <img src="Imagenes/LogoReset.png" alt="Logo">
+    </div>
+    
+    <!-- SECCIÓN 1 - Video de Fondo -->
+    <section class="seccion">
+        <video class="video-fondo" autoplay loop muted playsinline>
+            <source src="Imagenes/Clarity FOndoWeb.mp4" type="video/mp4">
+        </video>
+        
+</head>
+<body>
+
+    <!-- Contenedor para centrar el botón y el texto -->
+<div class="chatbot-wrapper">
+    <button id="chat-toggle" class="chat-button">
+        <img src="Imagenes/Clarity.jpeg" alt="Chatbot Avatar">
+    </button>    
+    <p class="chat-text"><h2>Habla con Clarity®</h2></p>    
+</div>
+
+<!-- Contenedor del chatbot -->
+<div id="chat-container" class="chat-container">
+    <iframe 
+        src="https://studio.d-id.com/agents/share?id=agt_7xUKmJPL&utm_source=copy&key=WVhWMGFEQjhOamRpWlRFeVpURXhOekEyTVRZMU0yVTVaV1EwWW1VMk9rMDNOREJHYkhGVFUxaEVhMUEyU0Rjd1VsUlZOQT09"
+        allow="microphone; camera; autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<script>
+    // Funcionalidad para mostrar/ocultar el chatbot
+    document.getElementById("chat-toggle").addEventListener("click", function () {
+        let chatContainer = document.getElementById("chat-container");
+        chatContainer.style.display = (chatContainer.style.display === "none" || chatContainer.style.display === "") ? "block" : "none";
+    });
+</script>
+
+    </section>
+    
+
+   <!-- SECCIÓN 2 -->
+<section class="seccion2">
+    <div class="texto">
+        <img src="Imagenes/titulo1.png" alt="Titulo">
+        <h1>El término "artesano" evoca la idea de algo hecho a mano, con cuidado,
+             detalle y personalización. Estas soluciones no son genéricas ni automatizadas
+             en masa, sino únicas y diseñadas con propósito. Además, conecta emocionalmente 
+             con los clientes, resaltando la creatividad y humanidad detrás de la tecnología de Reset®.
+             Aplicando Neurociencias e Inteligencia Artificial.
+        </h1>
+<br>
+        <!-- Contenedor del video con botón de sonido -->
+        <div class="video-container">
+            <video id="video-artesanos" autoplay loop muted playsinline>
+                <source src="Imagenes/Artesanos-Ai Agents-Reset® (1).mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <!-- Botón para controlar el sonido -->
+            <button id="mute-toggle" class="mute-button">🔇</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Obtener elementos del video y botón
+    const video = document.getElementById("video-artesanos");
+    const muteButton = document.getElementById("mute-toggle");
+
+    // Alternar sonido al hacer clic en el botón
+    muteButton.addEventListener("click", function () {
+        if (video.muted) {
+            video.muted = false;
+            muteButton.textContent = "🔊"; // Icono de sonido activado
+        } else {
+            video.muted = true;
+            muteButton.textContent = "🔇"; // Icono de sonido apagado
+        }
+    });
+</script>
+    
+    <!-- SECCIÓN 3 -->
+<section class="seccion3">
+    <!-- Video a la izquierda -->
+    <video autoplay loop muted playsinline>
+        <source src="Imagenes/Standard_Mode_Los_Artesanos_de_Reset_Clarity__ (3).mp4" type="video/mp4">
+    </video>
+
+    <!-- Contenedor del chatbot con imagen y texto arriba -->
+    <div class="chatbot-container">
+        <!-- Imagen y texto encima del chatbot -->
+        <div class="chatbot-header">
+            <img src="Imagenes/Titulo 2.png" alt="Chatbot Icono">
+            <p>¡Hola! Soy Clarity®, tu asistente en Reset.Mi misión es ayudarte a aprovechar
+                 el poder de la inteligencia artificial y la neurociencia para potenciar tu negocio.
+                  Si quieres aumentar tus ventas, hacer crecer tu marca y destacar en el mercado,
+                   estoy aquí para acompañarte en cada paso.
+                ¿Cómo puedo ayudarte hoy? 🚀</p>
+        </div>
+
+        <!-- Chatbot de Chatbase -->
+        <iframe 
+            src="https://www.chatbase.co/chatbot-iframe/rIlh50slfkvlA5RgViqdr"
+            width="100%"
+            style="height: 500px; border-radius: 30px; border: none;"
+            frameborder="0">
+        </iframe>
+    </div>
+</section>
+        
+
+    <!-- 🔥 Franja negra inferior con botones de redes sociales 🔥 -->
+<div class="franja-negra redes-sociales">
+    <span class="contactanos-text">Contáctanos:</span>
+    <a href="https://www.facebook.com/reset.la" target="_blank" class="social-button">
+        <img src="Imagenes/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/resetfirm.ai/" target="_blank" class="social-button">
+        <img src="Imagenes/instagram.jpg" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/company/resetfirm-ai/" target="_blank" class="social-button">
+        <img src="Imagenes/ink2.jpg" alt="LinkedIn">
+    </a>
+    <a href="https://www.youtube.com/@reset6629/" target="_blank" class="social-button">
+        <img src="Imagenes/youtube.jpg" alt="YouTube">
+    </a>
+</div>
+
+</body>
+</html>
