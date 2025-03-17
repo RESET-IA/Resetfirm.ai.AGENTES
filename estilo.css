@@ -404,6 +404,18 @@ img {
         flex-direction: column;
         gap: 10px;
     }
+    /* Contenedor del chatbot (centrado debajo del botón) */
+    .chat-container {
+        width: 900px;
+        height: 500px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        display: none;
+        margin-top: 10px; /* Espacio entre el botón y el chatbot */
+        margin-right: 10px;
+    }
     .chatbot-container, .seccion3 video {
         width: 90%;
     }
