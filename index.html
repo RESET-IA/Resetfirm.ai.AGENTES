@@ -43,6 +43,19 @@
     document.getElementById("chat-toggle").addEventListener("click", function () {
         let chatContainer = document.getElementById("chat-container");
         chatContainer.style.display = (chatContainer.style.display === "none" || chatContainer.style.display === "") ? "block" : "none";
+        // Evita que el clic en el botón se propague al documento
+        event.stopPropagation();
+    });
+
+    // Detectar clic fuera del chatbot para cerrarlo
+    document.addEventListener("click", function (event) {
+        let chatContainer = document.getElementById("chat-container");
+        let chatButton = document.getElementById("chat-toggle");
+
+        // Si el clic no es dentro del chat-container ni en el botón, lo oculta
+        if (!chatContainer.contains(event.target) && !chatButton.contains(event.target)) {
+            chatContainer.style.display = "none";
+        }
     });
 </script>
 
