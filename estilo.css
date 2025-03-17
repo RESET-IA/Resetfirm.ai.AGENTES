@@ -154,47 +154,6 @@ color: white;
 margin-top: 8px;
 }
 
- /* Botón redondo centrado en la primera sección */
- .chat-button {
-    width: 100px;
-    height: 100px;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-/* Imagen dentro del botón */
-.chat-button img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Contenedor del chatbot (centrado debajo del botón) */
-.chat-container {
-    width: 400px;
-    height: 500px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    display: none;
-    margin-top: 20px; /* Espacio entre el botón y el chatbot */
-}
-
-.chat-container iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    border: none;
-}
 
 /* Contenedor de los botones */
 .redes-sociales {
@@ -268,25 +227,11 @@ box-shadow: 0 0 5px #25D366;
 
 /* Contenedor para centrar botón y texto */
 .chatbot-wrapper {
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-}
-
-/* Botón de chatbot */
-.chat-button {
-width: 100px;
-height: 100px;
-background-color: transparent;
-border: 4px solid rgba(255, 60, 0, 0.651); /* Borde naranja */
-border-radius: 50%;
-cursor: pointer;
-padding: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-animation: pulse 1.5s infinite; /* Animación de latido */
+    display: flex;
+    flex-direction: column; /* Asegura que estén en columna */
+    align-items: center; /* Centrar elementos */
+    text-align: center;
+    gap: 10px; /* Espacio entre el botón y el texto */
 }
 
 /* Efecto de latido (pulsación) */
@@ -303,14 +248,6 @@ animation: pulse 1.5s infinite; /* Animación de latido */
     transform: scale(1);
     box-shadow: 0 0 10px rgba(255, 60, 0, 0.712);
 }
-}
-
-/* Imagen dentro del botón */
-.chat-button img {
-width: 100%;
-height: 100%;
-border-radius: 50%;
-object-fit: cover;
 }
 
 /* Texto debajo del botón */
@@ -386,6 +323,90 @@ img {
     max-width: 90%;
 }
 
+/* Botón flotante con imagen */
+.chat-button {
+    position: absolute;
+    top: 150px;
+    left: 600px;
+    width: 100px; /* Ajusta el tamaño del botón */
+    height: 100px;
+    background-color: rgb(214, 84, 0);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 6px 15px rgb(214, 84, 0);
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: transform 0.9s ease, box-shadow 0.3s ease;
+    animation: float 2s ease-in-out infinite; /* Animación continua */
+}
+
+.chat-button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Contenedor del chatbot (oculto por defecto) */
+.chat-container {
+    position: absolute;
+    bottom: 50px;
+    left: 450px;
+    width: 400px;
+    height: 500px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: none; /* Oculto por defecto */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el cursor */
+.chat-button:hover {
+    transform: translateY(-10px); /* Se mueve hacia arriba */
+    box-shadow: 0px 6px 15px rgb(214, 84, 0); /* Sombra naranja */
+}
+
+/* Animación de vaivén */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Estilos específicos para el iframe */
+.chat-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+}
+
+/* Animación de aparición del chatbot */
+.show-chat {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 /* Media Queries para responsividad */
 @media screen and (max-width: 768px) {
@@ -404,24 +425,6 @@ img {
         flex-direction: column;
         gap: 10px;
     }
-    /* Contenedor del chatbot (centrado debajo del botón) */
-    .chat-container {
-        width: 950px;
-        height: 500px;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        display: none;
-        margin-top: 10px; /* Espacio entre el botón y el chatbot */
-    }
-    .chat-container iframe {
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        border: none;
-        margin-left: 0px;
-    }
     .chatbot-container, .seccion3 video {
         width: 90%;
     }
@@ -436,6 +439,23 @@ img {
     .social-button img {
         width: 20px;
         height: 20px;
+    }
+
+    .chat-button {
+        top: 200px;
+        bottom: 20px; /* Lo mueve abajo en móviles */
+        left: 40%;
+        transform: translateX(-50%);
+        width: 80px; /* Tamaño reducido en móviles */
+        height: 80px;
+    }
+
+    .chat-container {
+        bottom: 80px; /* Espacio para que no se sobreponga con el botón */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; /* Ocupará el 90% del ancho en móviles */
+        height: 450px; /* Un poco más bajo para mejor visualización */
     }
     
 }
@@ -470,4 +490,21 @@ img {
         width: 18px;
         height: 18px;
     }
+    .chat-button {
+        top: 200px;
+        bottom: 20px; /* Lo mueve abajo en móviles */
+        left: 40%;
+        transform: translateX(-50%);
+        width: 80px; /* Tamaño reducido en móviles */
+        height: 80px;
+    }
+
+    .chat-container {
+        bottom: 80px; /* Espacio para que no se sobreponga con el botón */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; /* Ocupará el 90% del ancho en móviles */
+        height: 450px; /* Un poco más bajo para mejor visualización */
+    }
+    
 }
